@@ -79,7 +79,7 @@ postman collection link coming soon
 
 ## Deployment
 
-- The app is hosted [here](https://contacts-api1.herokuapp.com/) on heroku
+- coming soon
 
 ## Built With
 

@@ -9,14 +9,14 @@
     ]
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=production npm run migrateprod && node ./bin/www",
+    "start": "NODE_ENV=production npm run migrateprod && node ./bin/www",
     "dev": "npm run migratedev && nodemon ./bin/www",
-    "migratedev": "cross-env NODE_ENV=development npx sequelize-cli db:migrate",
-    "test": "cross-env NODE_ENV=test  npm run pretest && nyc --reporter=lcov --reporter=text --reporter=html mocha ./tests/*.test.js --recursive --exit",
-    "pretest": "cross-env NODE_ENV=test npm run resetdb",
-    "resetdb": "cross-env NODE_ENV=test npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all --seeders-path ./seeders/test",
-    "createtestdb": "cross-env NODE_ENV=test npx sequelize-cli db:create",
-    "migrateprod": "cross-env NODE_ENV=production npx sequelize-cli db:migrate"
+    "migratedev": "NODE_ENV=development npx sequelize-cli db:migrate",
+    "test": "NODE_ENV=test  npm run pretest && nyc --reporter=lcov --reporter=text --reporter=html mocha ./tests/*.test.js --recursive --exit",
+    "pretest": "NODE_ENV=test npm run resetdb",
+    "resetdb": "NODE_ENV=test npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all --seeders-path ./seeders/test",
+    "createtestdb": "NODE_ENV=test npx sequelize-cli db:create",
+    "migrateprod": "NODE_ENV=production npx sequelize-cli db:migrate"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

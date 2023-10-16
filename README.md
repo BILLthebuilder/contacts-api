@@ -52,9 +52,9 @@ npm start
 npm run dev
 ```
 
-### The Working API Endpoints
+### Test the API Endpoints
 
-postman collection link coming soon
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5176138-03671abb-fd88-4214-a375-03f717bcf122?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D5176138-03671abb-fd88-4214-a375-03f717bcf122%26entityType%3Dcollection%26workspaceId%3Df99137e8-f0b4-4850-8b9e-2fa166538946)
 
 #### Auth Endpoints
 

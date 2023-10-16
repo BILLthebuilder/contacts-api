@@ -1,0 +1,46 @@
+{
+  "name": "contacts-api",
+  "version": "0.0.0",
+  "private": true,
+  "nyc": {
+    "exclude": [
+      "helpers/",
+      "middleware/"
+    ]
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=production npm run migrateprod && node ./bin/www",
+    "dev": "npm run migratedev && nodemon ./bin/www",
+    "migratedev": "cross-env NODE_ENV=development npx sequelize-cli db:migrate",
+    "test": "cross-env NODE_ENV=test  npm run pretest && nyc --reporter=lcov --reporter=text --reporter=html mocha ./tests/*.test.js --recursive --exit",
+    "pretest": "cross-env NODE_ENV=test npm run resetdb",
+    "resetdb": "cross-env NODE_ENV=test npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all --seeders-path ./seeders/test",
+    "createtestdb": "cross-env NODE_ENV=test npx sequelize-cli db:create",
+    "migrateprod": "cross-env NODE_ENV=production npx sequelize-cli db:migrate"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cross-env": "^7.0.3",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.0",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "morgan": "~1.9.1",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.17.0",
+    "@faker-js/faker": "^6.0.0-alpha.7"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-asserttype": "^1.0.5",
+    "chai-http": "^4.3.0",
+    "mocha": "^9.2.1",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
+    "should": "^13.2.3"
+  }
+}

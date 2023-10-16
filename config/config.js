@@ -21,18 +21,18 @@ require('dotenv').config(); module.exports = {
     logging: false
   },
   production: {
-    username: process.env.DB_USER_PROD,
-    password: process.env.DB_PASS_PROD,
-    database: process.env.DB_PROD,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
+    username: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
     dialect: 'postgres',
-    // dialectOptions: {
-    //   ssl: {
-    //     require: true,
-    //     rejectUnauthorized: false
-    //   },
-    //   logging: false
-    // }
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      },
+      logging: false
+    }
   }
 };
